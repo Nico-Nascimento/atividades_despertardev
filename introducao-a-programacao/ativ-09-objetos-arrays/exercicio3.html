@@ -1,0 +1,39 @@
+<script>
+
+// 3. Crie um objeto para colocar nome e duas notas. Atribua nome e
+// duas notas para o primeiro objeto, que será nosso primeiro aluno.
+// Agora crie mais um objeto para colocar informações do nosso
+// segundo aluno. Mostre as informações de cada aluno no console.
+// Mostre também a média do primeiro aluno e a média do segundo
+// aluno. Por fim mostre a média desta turma de 2 alunos.
+
+alert("3. Crie um objeto para colocar nome e duas notas. Atribua nome e duas notas para o primeiro objeto, que será nosso primeiro aluno. Agora crie mais um objeto para colocar informações do nosso segundo aluno. Mostre as informações de cada aluno no console. Mostre também a média do primeiro aluno e a média do segundo aluno. Por fim mostre a média desta turma de 2 alunos.")
+
+document.write("<br/> <br/> <strong>Exercicio 3</strong> <br/> <br/>");
+
+const aluno1 = {
+    nome: "Nicolas",
+    notas: [8, 9]
+};
+
+const aluno2 = {
+    nome: "Cristian",
+    notas: [9, 10]
+};
+
+document.write(`Nome primeiro aluno: ${aluno1.nome}<br/>`);
+document.write(`Notas: ${aluno1.notas[0]}, ${aluno1.notas[1]}<br/> <br/>`);
+
+document.write(`Nome segundo aluno: ${aluno2.nome}<br/>`);
+document.write(`Notas: ${aluno2.notas[0]}, ${aluno2.notas[1]}<br/> <br/>`);
+
+const mediaAluno1 = (aluno1.notas[0] + aluno1.notas[1]) / 2;
+const mediaAluno2 = (aluno2.notas[0] + aluno2.notas[1]) / 2;
+
+document.write(`Média do Aluno 1: ${mediaAluno1}<br/>`);
+document.write(`Média do Aluno 2: ${mediaAluno2}<br/> <br/>`);
+
+const mediaAlunos = (mediaAluno1 + mediaAluno2) / 2;
+document.write(`Média dos alunos: ${mediaAlunos}<br/>`);
+
+</script>

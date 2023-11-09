@@ -1,0 +1,81 @@
+<script>
+
+// 4. Crie um cadastro de pessoas onde o usuário informe o nome, idade
+// e se está trabalhando ou não, se a pessoa estiver trabalhando
+
+// pergunte para ele o salário que está ganhando. Para cada pessoa
+// cadastrada, pergunte ao usuário se ele deseja continuar
+// cadastrando ou não. No final, mostre as pessoas que estão
+// desempregadas, as pessoas que estão empregadas separadas
+// pelas que ganham mais que 2500 e menos que 2500.
+
+// Exemplo de resultado:
+// Pessoas desempregadas:
+// Nome: Alessandro, Idade: 28
+// Nome: Alessandro, Idade: 28
+
+// Pessoas empregadas com salários menores que 2500:
+// Nome: Alessandro, Idade: 28, Salário: 1500
+// Nome: Alessandro, Idade: 28, Salário: 2400
+
+// Pessoas empregadas com salários maiores que 2500:
+// Nome: Alessandro, Idade: 28, Salário: 2700
+// Nome: Alessandro, Idade: 28, Salário: 3000
+
+alert("4. Crie um cadastro de pessoas onde o usuário informe o nome, idade e se está trabalhando ou não, se a pessoa estiver trabalhando pergunte para ele o salário que está ganhando. Para cada pessoa cadastrada, pergunte ao usuário se ele deseja continuar cadastrando ou não. No final, mostre as pessoas que estão desempregadas, as pessoas que estão empregadas separadas pelas que ganham mais que 2500 e menos que 2500. Exemplo de resultado: Pessoas desempregadas: Nome: Alessandro, Idade: 28 Nome: Alessandro, Idade: 28  Pessoas empregadas com salários menores que 2500: Nome: Alessandro, Idade: 28, Salário: 1500 Nome: Alessandro, Idade: 28, Salário: 2400 Pessoas empregadas com salários maiores que 2500: Nome: Alessandro, Idade: 28, Salário: 2700 Nome: Alessandro, Idade: 28, Salário: 3000")
+
+document.write("<br/> <br/> <strong>Exercicio 4</strong> <br/> <br/>");
+
+
+const pessoas = [];
+let continuar = true;
+
+while (continuar) {
+    const pessoa = {};
+
+    pessoa.nome = prompt("Digite o nome da pessoa:");
+    pessoa.idade = Number(prompt("Digite a idade da pessoa:"));
+    pessoa.trabalhando = confirm("A pessoa está trabalhando?");
+
+    if (pessoa.trabalhando) {
+         pessoa.salario = Number(prompt("Digite o salário da pessoa:"));
+    }
+
+    pessoas.push(pessoa);
+
+    continuar = confirm("Deseja continuar cadastrando?");
+}
+
+const desempregados = [];
+const empregadosMenor2500 = [];
+const empregadosMaior2500 = [];
+
+for (const pessoa of pessoas) {
+  if (!pessoa.trabalhando) {
+    desempregados.push(pessoa);
+  } else if (pessoa.salario <= 2500) {
+    empregadosMenor2500.push(pessoa);
+  } else {
+    empregadosMaior2500.push(pessoa);
+  }
+}
+
+document.write(`Pessoas desempregadas: <br/>`);
+for (let i = 0; i < desempregados.length; i++) {
+  const pessoa = desempregados[i];
+  document.write(`Nome: ${pessoa.nome} | Idade: ${pessoa.idade} <br/> <br/>`);
+}
+
+document.write(`Pessoas empregadas com salários menores que 2500: <br/>`);
+for (let i = 0; i < empregadosMenor2500.length; i++) {
+  const pessoa = empregadosMenor2500[i];
+  document.write(`Nome: ${pessoa.nome} | Idade: ${pessoa.idade} | Salário: ${pessoa.salario} <br/> <br/>`);
+}
+
+document.write(`Pessoas empregadas com salários maiores ou iguais a 2500: <br/>`);
+for (let i = 0; i < empregadosMaior2500.length; i++) {
+  const pessoa = empregadosMaior2500[i];
+  document.write(`Nome: ${pessoa.nome} | Idade: ${pessoa.idade} | Salário: ${pessoa.salario} <br/> <br/>`);
+}
+
+</script>
