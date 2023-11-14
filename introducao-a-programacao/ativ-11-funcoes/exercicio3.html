@@ -1,0 +1,30 @@
+<script>
+
+// 3. Crie uma função que recebe por parâmetro um valor inteiro e
+// positivo e retorne verdadeiro se o número for primo ou falso se não
+// for.
+
+alert("3. Crie uma função que recebe por parâmetro um valor inteiro e positivo e retorne verdadeiro se o número for primo ou falso se não for.")
+
+document.write("<br/> <br/> <strong>Exercicio 3</strong> <br/> <br/>");
+ 
+function ehPrimo(numero) {
+    if (numero <= 1) {
+        return false;
+    }
+
+    for (let i = 2; i * i <= numero; i++) {
+        if (numero % i === 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+let numeroExemplo = 17;
+let resultado = ehPrimo(numeroExemplo);
+
+console.log(`O número ${numeroExemplo} é primo? ${resultado}`);
+
+</script>

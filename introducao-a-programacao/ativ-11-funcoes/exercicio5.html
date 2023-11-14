@@ -1,0 +1,37 @@
+<script>
+
+// 5. Crie uma função que recebe um valor inteiro e retorne verdadeiro se
+// é um valor perfeito ou falso se não for. Um valor é dito perfeito
+// quando ele é igual a soma dos seus divisores excetuando ele
+// próprio.
+// Ex: 6 é perfeito, pois 6 = 1 + 2 + 3, que são seus divisores
+
+alert("5. Crie uma função que recebe um valor inteiro e retorne verdadeiro se é um valor perfeito ou falso se não for. Um valor é dito perfeito quando ele é igual a soma dos seus divisores excetuando ele próprio. Ex: 6 é perfeito, pois 6 = 1 + 2 + 3, que são seus divisores")
+
+document.write("<br/> <br/> <strong>Exercicio 5</strong> <br/> <br/>");
+ 
+function numeroPerfeito(numero) {
+    if (numero <= 1) 
+        return false;
+
+    let somaDivisores = 1;
+
+    for (let i = 2; i <= Math.sqrt(numero); i++) {
+        if (numero % i === 0) {
+            somaDivisores += i;
+
+            if (i !== numero / i) {
+                somaDivisores += numero / i;
+            }
+        }
+    }
+
+    return somaDivisores === numero;
+}
+
+let numeroExemplo = 6;
+let resultado = numeroPerfeito(numeroExemplo);
+
+console.log(`O número ${numeroExemplo} é perfeito? ${resultado}`);
+
+</script>

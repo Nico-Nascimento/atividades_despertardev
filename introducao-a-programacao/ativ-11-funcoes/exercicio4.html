@@ -1,0 +1,27 @@
+<script>
+
+// 4. Crie uma função que recebe por parâmetro o tempo de duração de
+// uma fábrica expressa em segundos e retorna esse tempo em horas,
+// minutos e segundos.
+
+alert(" 4. Crie uma função que recebe por parâmetro o tempo de duração de uma fábrica expressa em segundos e retorna esse tempo em horas, minutos e segundos.")
+
+document.write("<br/> <br/> <strong>Exercicio 4</strong> <br/> <br/>");
+ 
+function converterTempo(segundos) {
+    let horas = Math.floor(segundos / 3600);
+    let minutos = Math.floor((segundos % 3600) / 60);
+    let segundosRestantes = segundos % 60;
+
+    let resultado = `${horas}:${minutos}:${segundosRestantes}`;
+
+    return resultado;
+}
+
+let tempoEmSegundos = 4853;
+let resultado = converterTempo(tempoEmSegundos);
+
+console.log(`Entrada: ${tempoEmSegundos}`);
+console.log(`Saída: ${resultado}`);
+
+</script>
