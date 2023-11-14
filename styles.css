@@ -121,12 +121,12 @@ main {
 
 .git a {
     text-decoration: none;
-    color: #454960;
+    color: #282A36;
     transition: 0.3s ease-in-out;
 }
 
 .git a:hover {
-    color: #282A36;
+    color: #070d12;
 }
 
 .card-link {
