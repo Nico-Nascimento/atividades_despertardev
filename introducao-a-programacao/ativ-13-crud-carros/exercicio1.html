@@ -1,0 +1,138 @@
+<script>
+
+    const carros = [];
+
+    function menu() {
+        alert(`Bem-vindo ao sistema CRUD de veículos! | No momento, o sistema tem ${carros.length} carros cadastrados`);
+
+        let opcao;
+        do {
+            opcao = prompt(`Escolha uma das opções: | 1 - Cadastrar veículo | 2 - Listar veículos | 3 - Filtrar veículos por marca | 4 - Atualizar veículo | 5 - Remover veículo | 6 - Sair do sistema`);
+
+            switch (opcao) {
+                case '1':
+                    cadastrarVeiculo();
+                    break;
+                case '2':
+                    listarVeiculos();
+                    break;
+                case '3':
+                    filtrarMarca();
+                    break;
+                case '4':
+                    atualizarVeiculo();
+                    break;
+                case '5':
+                    removeVeiculo();
+                    break;
+                case '6':
+                    alert("Saindo do sistema.");
+                    break;
+                default:
+                    alert("Opção inválida. Tente novamente.");
+            }
+        } while (opcao !== '6');
+    }
+
+    function cadastrarVeiculo() {
+        const modelo = prompt("Digite o modelo do veículo:");
+        const marca = prompt("Digite a marca do veículo:");
+        const ano = prompt("Digite o ano do veículo:");
+        let cor = prompt("Digite a cor do veículo:");
+        let preco = prompt("Digite o preço do veículo:");
+
+        const id = carros.length + 1;
+
+        const veiculo = {
+            id: id,
+            modelo: modelo,
+            marca: marca,
+            ano: ano,
+            cor: cor,
+            preco: preco
+        };
+
+        carros.push(veiculo);
+
+        alert("Veículo cadastrado com sucesso!");
+    }
+
+    function listarVeiculos() {
+        if (carros.length === 0) {
+            alert("Nenhum veículo cadastrado.");
+            return;
+        }
+
+        let lista = "Lista de veículos:\n";
+        carros.sort((maior, menor) => maior.preco - menor.preco);
+
+        for (let veiculo of carros) {
+            lista += `ID: ${veiculo.id} | Modelo: ${veiculo.modelo} | Marca: ${veiculo.marca} | Ano: ${veiculo.ano} | Cor: ${veiculo.cor} | Preço: R$${veiculo.preco}\n`;
+        }
+
+        alert(lista);
+    }
+
+    function filtrarMarca() {
+        if (carros.length === 0) {
+            alert("Nenhum veículo cadastrado.");
+            return;
+        }
+
+        const marcaFiltro = prompt("Digite a marca para filtrar:");
+
+        let veiculosFiltrados = carros.filter(veiculo => veiculo.marca === marcaFiltro);
+        veiculosFiltrados.sort((maior, menor) => maior.preco - menor.preco);
+
+        let listaFiltrada = "Veículos da marca " + marcaFiltro + ":\n";
+        for (let veiculo of veiculosFiltrados) {
+            listaFiltrada += `ID: ${veiculo.id} | Modelo: ${veiculo.modelo} | Cor: ${veiculo.cor} | Preço: R$${veiculo.preco}\n`;
+        }
+
+        alert(listaFiltrada);
+    }
+
+    function atualizarVeiculo() {
+        if (carros.length === 0) {
+            alert("Nenhum veículo cadastrado.");
+            return;
+        }
+
+        let idAtualizar = prompt("Digite o ID do veículo a ser atualizado:");
+        let veiculoAtualizar = carros.find(veiculo => veiculo.id == idAtualizar);
+
+        if (!veiculoAtualizar) {
+            alert("Veículo não encontrado. Retornando ao menu inicial.");
+            return;
+        }
+
+        let novaCor = prompt("Digite a nova cor do veículo:");
+        let novoPreco = prompt("Digite o novo preço do veículo:");
+
+        veiculoAtualizar.cor = novaCor;
+        veiculoAtualizar.preco = novoPreco;
+
+        alert("Veículo atualizado com sucesso!");
+    }
+
+    function removeVeiculo() {
+        if (carros.length === 0) {
+            alert("Nenhum veículo cadastrado.");
+            return;
+        }
+
+        let idRemover = prompt("Digite o ID do veículo a ser removido:");
+        let indiceRemover = carros.findIndex(veiculo => veiculo.id === idRemover);
+
+        if (indiceRemover === -1) {
+            alert("Veículo não encontrado. Retornando ao menu inicial.");
+            return;
+        }
+
+        carros.splice(indiceRemover, 1);
+
+        alert("Veículo removido com sucesso!");
+    }
+
+menu();
+</script>
