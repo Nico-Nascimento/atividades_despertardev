@@ -1,0 +1,19 @@
+{
+    "tarefas": [
+        {
+            "id": 1,
+            "title": "Ir ao mercado",
+            "description": "Comprar pão"
+        },
+        {
+            "id": 2,
+            "title": "Ir ao cinema",
+            "description": "Assistir Vingadores"
+        },
+        {
+            "id": 3,
+            "title": "Ir posto de gasolina",
+            "description": "Abastecer o carro"
+        }
+    ]
+}
