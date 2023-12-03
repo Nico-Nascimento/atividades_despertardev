@@ -51,27 +51,27 @@ function apiPlanetas() {
       );
       console.log(densidadeLuas);
 
-      // console.log("10. Ordem de descobrimento:");
-      // const ordemDescobrimento = corposCelestes.filter(corpos => corpos.discoveryDate !== '');
-      // const sortDescobrimento = ordemDescobrimento.sort((a, b) => new Date(a.discoveryDate.split("/").reverse()) - new Date(b.discoveryDate.split("/").reverse()));
-      // sortDescobrimento.forEach(astro => console.log(`${astro.englishName}: ${astro.discoveryDate}`));
+      console.log("10. Ordem de descobrimento:");
+      const ordemDescobrimento = corposCelestes.filter(corpos => corpos.discoveryDate !== '');
+      const sortDescobrimento = ordemDescobrimento.sort((a, b) => new Date(a.discoveryDate.split("/").reverse()) - new Date(b.discoveryDate.split("/").reverse()));
+      sortDescobrimento.forEach(astro => console.log(`${astro.englishName}: ${astro.discoveryDate}`));
 
-      // console.log("11. Encontrando Astro:");
-      // encontrarPlaneta();
-      // function encontrarPlaneta() {
-      //   const nomePlaneta = prompt("Difite o nome do planeta:");
-      //   const encontrado = planetas.find(
-      //     (corpos) => corpos.englishName === nomePlaneta
-      //   );
+      console.log("11. Encontrando Astro:");
+      encontrarPlaneta();
+      function encontrarPlaneta() {
+        const nomePlaneta = prompt("Difite o nome do planeta:");
+        const encontrado = planetas.find(
+          (corpos) => corpos.englishName === nomePlaneta
+        );
 
-      //   if (encontrado) {
-      //     console.log(`Aphelion: ${encontrado.aphelion}`);
-      //     console.log(`Perihelio: ${encontrado.perihelion}`);
-      //     console.log(`Massa: ${encontrado.mass.massValue}`);
-      //     console.log(`Gravidade: ${encontrado.gravity}`);
-      //     console.log(`Densidade ${encontrado.density}`);
-      //   }
-      // }
+        if (encontrado) {
+          console.log(`Aphelion: ${encontrado.aphelion}`);
+          console.log(`Perihelio: ${encontrado.perihelion}`);
+          console.log(`Massa: ${encontrado.mass.massValue}`);
+          console.log(`Gravidade: ${encontrado.gravity}`);
+          console.log(`Densidade ${encontrado.density}`);
+        }
+      }
 
       console.log("12. Filtro de Temperatura:");
       const filtroTemperatura = planetas
@@ -99,13 +99,25 @@ function apiPlanetas() {
         console.log(separatedByType);
       }
 
-      // console.log(`14. Ordenação Complexa:`);
-      // const teste = separatedByType
-      //   .forEach((corpse) =>
-      //     corpse.sort((a, b) => a.mass.massValue - b.mass.massValue)
-      //   )
-      //   .slice(0, 2);
-      // console.log(teste);
+      console.log(`14. Ordenação Complexa:`);
+      sortAndFilterPlanets();
+      function sortAndFilterPlanets() {
+        planetas.sort((a, b) => {
+          const typeComparison = a.bodyType.localeCompare(b.bodyType);
+          if (typeComparison !== 0) {
+            return typeComparison;
+          }
+          return b.meanRadius - a.meanRadius;
+        });
+      }
+
+      console.log(`15 Encontrando planetas orbitados.. :`);
+      const planetMoons = [...planetas].filter((corpse) => {
+        if (corpse.moons !== null) {
+          console.log(`Planeta: ${corpse.englishName}`);
+          corpse.moons.forEach((moon) => console.log(`Lua: ${moon.moon}`));
+        }
+      });
 
       console.log(`16. Média da Massa dos Planetas:`);
       const totalMass = planetas.reduce(
@@ -135,17 +147,48 @@ function apiPlanetas() {
 
       console.log(`18. Planetas com Luas:`);
       const planetasComLuas = corposCelestes.filter(
-        planet => planet.moons && planet.moons.length > 0
+        (planet) => planet.moons && planet.moons.length > 0
       );
       planetasComLuas.forEach((planet) => {
         console.log(`${planet.englishName}: ${planet.moons.length} lua(s)`);
       });
 
-      console.log("19. O Desafio Final em Manipulação de Dados e Cálculos Análise Estatística do Sistema Solar:");
-      const arrayPlanetas = result
+      statisticalAnalysis()
+      function statisticalAnalysis() {
+        const planets = planetas.filter(body => body.isPlanet && body.englishName !== 'Earth');
+        const planetMasses = planets.map(planet => planet.mass.massValue);
+        planetMasses.sort((a, b) => a - b);
+      
+        const median = calcMedian(planetMasses);
+        const closestPlanet = findClosestPlanet(planets, median);
+
+        console.log('Massas dos planetas:', planetMasses);
+        console.log('Mediana das massas dos planetas:', median);
+        console.log('Planeta mais próximo da mediana:', closestPlanet.englishName);
+      }
+      
+      function calcMedian(sortedArray) {
+        const length = sortedArray.length;
+        const middle = Math.floor(length / 2);
+      
+        if (length % 2 === 0) {
+          return (sortedArray[middle - 1] + sortedArray[middle]) / 2;
+        } else {
+          return sortedArray[middle];
+        }
+      }
+      
+      function findClosestPlanet(planets, targetMass) {
+        return planets.reduce((closest, planet) => {
+          const planetMass = planet.mass.massValue;
+          const closestMass = closest.mass.massValue;
+          const currentDifference = Math.abs(planetMass - targetMass);
+          const closestDifference = Math.abs(closestMass - targetMass);
+      
+          return currentDifference < closestDifference ? planet : closest;
+        });
+      }
     })
-
-
     .catch((err) => {
       console.log("Error", err);
     });
