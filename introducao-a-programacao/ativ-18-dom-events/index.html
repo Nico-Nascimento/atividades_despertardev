@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios DOM Events / Javascript</title>
+
+    <style>
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<style>
+    body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+div {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+}
+
+blockquote {
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-left: 4px solid #007bff;
+}
+
+blockquote p {
+    margin: 0;
+}
+
+ol {
+    margin: 0;
+    padding: 0;
+    list-style-type: decimal;
+    padding-left: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+</style>
+<body>
+    <div>
+        <h1>Planilha de cálculos</h1>
+
+        <blockquote>
+            <p>Resumo da Tarefa</p>
+            <ol>
+                <li>Totalizar os campos 1+2+3 no campo 4</li>
+                <li>Totalizar os descontos 5+6 no campo 7</li>
+                <li>Totalizar as receitas - despesas (campo 4 - campo 7) no campo 10</li>
+            </ol>
+            <footer>Bom trabalho.</footer>
+        </blockquote>
+
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Código</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="col" colspan="3">RECEITAS</th>
+                </tr>
+                <tr >
+                    <th scope="col">1</th>
+                    <td>Valor Base (R$)</td>
+                    <td><input type="number" id="valor_base" placeholder="0"></td>
+                </tr>
+                <tr>
+                    <th scope="col">2</th>
+                    <td>Ajuda com transporte (R$)</td>
+                    <td><input type="number" id="valor_transporte" placeholder="0"></td>
+                </tr>
+                <tr>
+                    <th scope="col">3</th>
+                    <td>Ajuda alimentação (R$)</td>
+                    <td><input type="number" id="valor_alimentacao" placeholder="0"></td>
+                </tr>
+                <tr>
+                    <th scope="col">4</th>
+                    <th scope="col">Receita Total (R$)</th>
+                    <th scope="col"><input type="number" id="valor_receita" placeholder="0" disabled></th>
+                </tr>
+                <tr>
+                    <th scope="col" colspan="3">DESCONTOS</th>
+                </tr>
+                <tr>
+                    <th scope="col">5</th>
+                    <td>Desconto de Automóvel (R$)</td>
+                    <td><input type="number" id="valor_automovel" placeholder="0"></td>
+                </tr>
+                <tr>
+                    <th scope="col">6</th>
+                    <td>Faltas (R$)</td>
+                    <td><input type="number" id="faltas" placeholder="0"></td>
+                </tr>
+                <tr>
+                    <th scope="col" >7</th>
+                    <th scope="col">Descontos Total (R$)</th>
+                    <th scope="col"><input type="number"  id="valor_descontos" placeholder="0" disabled></th>
+                </tr>
+                <tr>
+                    <th scope="col" colspan="3">TOTAL</th>
+                </tr>
+                <tr>
+                    <th scope="col">8</th>
+                    <th scope="col">Total (R$)</th>
+                    <th scope="col"><input type="number"id="valor_total" placeholder="0" disabled></th>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="height: 50px;"></div>
+
+        <button id="btn_calcular" onclick="calcular()">Calcular</button>
+
+    </div>
+
+
+    <script src="./calculos.js"></script>
+</body>
+
+</html>

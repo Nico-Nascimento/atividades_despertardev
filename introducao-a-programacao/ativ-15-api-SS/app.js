@@ -44,7 +44,7 @@ function apiPlanetas() {
       console.log(menoresPlanetas);
       console.log(totalMassa);
 
-      console.log("9. Luas e Desidade:");
+      console.log("9. Luas e Densidade:");
       const densidadeLuas = planetas.filter(
         (planet) =>
           planet.moons && planet.moons.length > 2 && planet.density > 1
@@ -59,7 +59,7 @@ function apiPlanetas() {
       console.log("11. Encontrando Astro:");
       encontrarPlaneta();
       function encontrarPlaneta() {
-        const nomePlaneta = prompt("Difite o nome do planeta:");
+        const nomePlaneta = prompt("Digite o nome do planeta:");
         const encontrado = planetas.find(
           (corpos) => corpos.englishName === nomePlaneta
         );
