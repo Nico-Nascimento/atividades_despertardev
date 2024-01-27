@@ -1,148 +1,158 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Tilt+Neon&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Tilt+Neon&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 * {
-    scrollbar-width: thin;
-    scrollbar-color: #047bcf #070d12;
-  }
-  
-  *::-webkit-scrollbar {
-    width: 12px;
-  }
-  
-  *::-webkit-scrollbar-track {
-    background: #070d12;
-  }
-  
-  *::-webkit-scrollbar-thumb {
-    background-color: #047bcf;
-    border-radius: 20px;
-    border: 3px solid #070d12;
-  }
+  scrollbar-width: thin;
+  scrollbar-color: #047bcf #070d12;
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #070d12;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #047bcf;
+  border-radius: 20px;
+  border: 3px solid #070d12;
+}
 
 body {
-    background-color: #282A36;
+  background-color: #282a36;
 }
 
 header {
-    background-color: #454960;
-    padding: 0.2rem;
-    box-shadow: 0px 0px 10px 0px #000000;
+  background-color: #454960;
+  padding: 0.2rem;
+  box-shadow: 0px 0px 10px 0px #000000;
 }
 
 main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.25rem;
-    padding: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 2rem;
+}
+
+.cards {
+  width: 70vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 }
 
 .title {
-    text-align: center;
-    margin-top: 2rem;
-    color: white;
-    font-size: 2.2rem;
+  text-align: center;
+  margin-top: 2rem;
+  color: white;
+  font-size: 2.2rem;
 }
 
 .title span {
-    font-size: 2.5rem;
-    color: #EC6EB0;
+  font-size: 2.5rem;
+  color: #ec6eb0;
 }
 
 .sub-title {
-    text-align: center;
-    margin: 1rem;
-    font-size: 1.8rem;
-    background: linear-gradient(45deg, #7E63B7, #41C269, #EC6EB0, #7E63B7);
-    background-size: 400% 100%;
-    animation: degrade 20s linear infinite alternate;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin: 1rem;
+  font-size: 1.8rem;
+  background: linear-gradient(45deg, #7e63b7, #41c269, #ec6eb0, #7e63b7);
+  background-size: 400% 100%;
+  animation: degrade 20s linear infinite alternate;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 @keyframes degrade {
-    0%{
-        background-position-x: 0%;
-    }
-    100%{
-        background-position: 400%;
-    }
+  0% {
+    background-position-x: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
 }
 
 .home {
-    text-align: center;
-    padding-bottom: 0.5rem;
+  text-align: center;
+  padding-bottom: 0.5rem;
 }
 
-.home a{
-    text-decoration: none;
-    color: white;
-    font-size: 1.5rem;
-    transition: all 0.3s ease-in-out;
-    transition-delay: 100ms;
+.home a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+  transition: all 0.3s ease-in-out;
+  transition-delay: 100ms;
 }
 
 .home a:hover {
-    color: #282A36;
+  color: #282a36;
 }
 
 .card {
-    background-color: #d8dae4;
-    border-radius: 0.62rem;
-    padding: 1.25rem;
-    width: 18rem;
-    margin: 0.62rem;
-    margin-top: 2rem;
-    transition: transform 0.3s ease-in-out;
-    transition-delay: 100ms ;
+  background-color: #d8dae4;
+  border-radius: 0.62rem;
+  padding: 1.25rem;
+  width: 18rem;
+  margin: 0.62rem;
+  margin-top: 2rem;
+  transition: transform 0.3s ease-in-out;
+  transition-delay: 100ms;
 }
 
 .card:hover {
-    transform: scale(1.10);
-    box-shadow: 0px 0px 10px 5px #000000;
+  transform: scale(1.1);
+  box-shadow: 0px 0px 10px 5px #000000;
 }
 
 .card-title {
-    text-align: center;
-    color: #1e2029;
+  text-align: center;
+  color: #1e2029;
 }
 
 .git {
-    text-align: center;
-    margin-top: 0.5rem;
+  text-align: center;
+  margin-top: 0.5rem;
 }
 
 .git a {
-    text-decoration: none;
-    color: #282A36;
-    transition: 0.3s ease-in-out;
+  text-decoration: none;
+  color: #282a36;
+  transition: 0.3s ease-in-out;
 }
 
 .git a:hover {
-    color: #070d12;
+  color: #070d12;
 }
 
 .card-link {
-    text-decoration: none;
-    text-align: center;
-    background-color: #282A36;
-    font-size: 1rem;
-    display: block;
-    margin-top: 0.62rem;
-    color: #ffffff;
-    padding: 0.45rem 0.75rem;
-    border-radius: 0.3rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  text-decoration: none;
+  text-align: center;
+  background-color: #282a36;
+  font-size: 1rem;
+  display: block;
+  margin-top: 0.62rem;
+  color: #ffffff;
+  padding: 0.45rem 0.75rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .card-link:hover {
-    background-color: #454960;
+  background-color: #454960;
 }
